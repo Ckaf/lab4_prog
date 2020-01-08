@@ -1,31 +1,25 @@
 package com.company;
 
-abstract class Living implements traffic, puddle, Hold, gun, air, take {
-    // флаг состояния полета
-    public int flag = 0;
-    // флаг отвечает за то, держит ли Винни-Пух шарик
-    public int flag1 = 0;
+import com.company.Interfaces.*;
 
-    public int flag2 = 0;
-
-    protected Living(int weight, int forse, String name) {
-
-    }
-
-
-    void getСolor() {
-        System.out.println(color);
-    }
-
-    public String color;
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void inflate(int v) {
-
-    }
-
-
+abstract class Living implements IMovable, IChangeable, IHoldable, IShotable, IInflatable, ITakable, INameable {
+	protected int isFlying = 0;
+	
+	protected int isHoldingBalloon = 0;
+	
+	protected int isWithBurstBalloon = 0;
+	
+	protected String color;
+	
+	protected Living(int weight, int force) {
+	
+	}
+	
+	void getColor() {
+		System.out.println(color);
+	}
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
 }
