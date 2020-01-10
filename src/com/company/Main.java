@@ -22,9 +22,9 @@ public class Main {
 		BalloonColor balloonColorFirst = BalloonColor.GREEN;
 		BalloonColor balloonColorSecond = BalloonColor.BLUE;
 		
-		Pig pig = new Pig(3, 2);
-		Robin robin = new Robin(15, 15);
-		Vinni vinni = new Vinni(5, 5);
+		Pig pig = new Pig(5);
+		Vinni vinni = new Vinni(15);
+		Robin robin = new Robin(10, vinni);
 		
 		robin.take(balloonColorFirst);
 		robin.take(balloonColorSecond);
@@ -34,13 +34,12 @@ public class Main {
 		
 		robin.shot();
 		
-		robin.goToX(15);
-		vinni.goToX(15);
-		robin.goToX(15);
-		vinni.goToX(15);
+		robin.addToCoordinate(5);
+		vinni.addToCoordinate(5);
+		robin.addToCoordinate(15);
+		vinni.addToCoordinate(15);
 		
 		vinni.changeColor("темный как тучка");
-		vinni.getColor();
 		
 		robin.hold(false);
 		

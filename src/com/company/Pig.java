@@ -1,40 +1,28 @@
 package com.company;
 
-import com.company.Enums.BalloonColor;
-
 class Pig extends Living {
-	protected Pig(int weight, int force) {
-		super(weight, force);
+	public Pig(int weight) {
+		super(weight);
 	}
 	
 	@Override
-	public void goToX(int x) {
-		System.out.println("Пятачок позавчера сломал лапу, и ему крайне трудно передвигаться");
+	public void addToCoordinate(int coordinateAddition) {
+		System.out.format("%s позавчера сломал лапу, и ему крайне трудно передвигаться.", getName());
 	}
 	
 	@Override
 	public void shot() {
-		System.out.println("У Пятачка нет огнестрела");
+		System.out.format("%s не имеет огнестрел.", getName());
 	}
 	
 	@Override
 	public void hold(boolean force) {
-		System.out.println("У Пятачка не осталось шаров");
+		System.out.format("%s больше не имеет шаров.", getName());
 	}
 	
 	@Override
-	public void changeColor(String color) {
-	}
-	
-	@Override
-	public void inflate(int v) {
-		System.out.println("Шарики удобнее дарить ненадутыми");
-	}
-	
-	@Override
-	public void take(BalloonColor balloon) {
-		if (balloon == BalloonColor.GREEN) System.out.println("Пятачок взял зеленый шарик");
-		else System.out.println("Пятачок взял синий шарик");
+	public void inflate(int value) {
+		System.out.format("%s считает что шарики удобнее дарить ненадутыми", getName());
 	}
 	
 	@Override

@@ -1,18 +1,11 @@
 package com.company;
 
-import com.company.Enums.BalloonColor;
-
 class Robin extends Living {
-	int sumx = 0;
+	private int weightVinnie;
 	
-	Robin(int weight, int force) {
-		super(weight, force);
-	}
-	
-	@Override
-	public void goToX(int x) {
-		System.out.println("Робин переместился из точки " + sumx + " в точку " + (sumx + x));
-		sumx = sumx + x;
+	public Robin(int weight, Living vinnie) {
+		super(weight);
+		weightVinnie = vinnie.getWeight();
 	}
 	
 	@Override
@@ -23,16 +16,17 @@ class Robin extends Living {
 			if (isHoldingBalloon == 1)
 				System.out.println("Шарик улетел");
 			else {
-				System.out.println("Винни-Пух взлетает");
-				isFlying = 1;
+				if (weightVinnie <= 20) {
+					System.out.println("Винни-Пух взлетает");
+					isFlying = 1;
+				} else {
+					System.out.println("Винни-Пух не взлетает");
+					isFlying = 0;
+				}
 			}
 		}
 		if (isWithBurstBalloon == 2)
 			System.out.println("Робин держит лопнутый шарик");
-	}
-	
-	@Override
-	public void changeColor(String color) {
 	}
 	
 	@Override
@@ -45,18 +39,6 @@ class Robin extends Living {
 				System.out.println("Винни-Пух падает на землю");
 			} else System.out.println("Промах");
 		} else System.out.println("А зачем шары портить?");
-	}
-	
-	@Override
-	public void take(BalloonColor balloonColor) {
-		if (balloonColor == BalloonColor.GREEN) System.out.println("Робин взял зеленый шарик");
-		else System.out.println("Робин взял синий шарик");
-	}
-	
-	@Override
-	public void inflate(int value) {
-		System.out.print("Робин");
-		Balloon.inflate(value);
 	}
 	
 	@Override

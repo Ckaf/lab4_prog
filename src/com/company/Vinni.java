@@ -1,20 +1,9 @@
 package com.company;
 
-import com.company.Enums.BalloonColor;
-
 class Vinni extends Living {
-	int sumx = 0;
-	
-	Vinni(int weight, int force) {
-		super(weight, force);
+	public Vinni(int weight) {
+		super(weight);
 	}
-	
-	@Override
-	public void goToX(int x) {
-		System.out.println("Винни-Пух переместился из точки " + sumx + " в точку " + (sumx + x));
-		sumx = sumx + x;
-	}
-	
 	
 	@Override
 	public void hold(boolean force) {
@@ -29,26 +18,12 @@ class Vinni extends Living {
 	@Override
 	public void changeColor(String color) {
 		setColor(color);
-		System.out.println("Винни-Пух стал " + color);
+		System.out.format("%s стал %s\n", getName(), getColor());
 	}
 	
 	@Override
 	public void shot() {
 		System.out.println("Пух не ладит с оружием");
-	}
-	
-	@Override
-	public void inflate(int v) {
-		System.out.print("Винни-Пух");
-		Balloon.inflate(v);
-	}
-	
-	@Override
-	public void take(BalloonColor balloonColor) {
-		if (balloonColor == BalloonColor.GREEN)
-			System.out.println("Винни-Пух взял зеленый шарик");
-		else
-			System.out.println("Винни-Пух взял синий шарик");
 	}
 	
 	@Override
