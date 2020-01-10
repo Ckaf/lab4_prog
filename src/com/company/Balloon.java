@@ -1,21 +1,14 @@
 package com.company;
 
 public class Balloon {
-    private static int sumv=0;
-
-
-    {
-
-    }
-
-// метод отвечающий за надувание(максимальный объем шара=100)
-    public static void inflateb(int v) {
-        sumv = sumv + v;
-        if (sumv <= 100) {
-            System.out.println(" надул шарик");
-        }
-        else System.out.println(" лопнул шарик");
-
-    }
-
+	private static final int VALUE_MAX = 100;
+	private static int valueCurrent = 0;
+	
+	public static String inflate(int valueToAdd) {
+		valueCurrent = valueCurrent + valueToAdd;
+		if (valueCurrent <= VALUE_MAX)
+			return "надул шарик";
+		else
+			return "лопнул шарик";
+	}
 }

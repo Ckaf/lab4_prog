@@ -1,31 +1,53 @@
 package com.company;
 
-// взял вариант 1552.6
+/*
+Ну, а как раз накануне Кристофер Робин был на вечере у своего друга Пятачка, и там всем гостям дарили воздушные шарики.
+Кристоферу Робину достался большущий зеленый шар, а одному из Родных и Знакомых Кролика приготовили большой-пребольшой
+синий шар, но этот Родственник и Знакомый его не взял, потому что сам он был еще такой маленький, что его не взяли в
+гости, поэтому Кристоферу Робину пришлось, так и быть, захватить с собой оба шара-- и зеленый и синий. Пух обхватил
+голову лапами и задумался глубоко-глубоко. И вопрос был решен. Друзья взяли с собой синий шар, Кристофер Робин, как
+всегда (просто на всякий случай), захватил свое ружье, и оба отправились в поход. Винни-Пух первым делом подошел к
+одной знакомой луже и как следует вывалялся в грязи, чтобы стать совсем-совсем черным, как настоящая тучка. Потом они
+стали надувать шар, держа его вдвоем за веревочку. И когда шар раздулся так, что казалось, вот-вот лопнет, Кристофер
+Робин вдруг отпустил веревочку, и Винни-Пух плавно взлетел в небо и остановился там-- как раз напротив верхушки
+пчелиного дерева, только немного в стороне. К сожалению, ветра не было, и Пух повис в воздухе совершенно неподвижно.
+Он мог чуять мед, он мог видеть мед, но достать мед он, увы, никак не мог. Спустя некоторое время он снова заговорил.
+ */
+
+
+import com.company.Enums.BalloonColor;
+
 public class Main {
-    enum Ballon {Green, Blue}
-
-    public static void main(String[] args) {
-        Ballon ballon = Ballon.Green;
-        Ballon ballon1 = Ballon.Blue;
-        Pig Pyatachok = new Pig(3, 2, "Пяточок");
-        Robin Robin = new Robin(15, 15, "Кристофер Робин");
-        Vinni Vinni = new Vinni(5, 5, "Винни-Пух");
-        Robin.take(ballon);
-        Robin.take(ballon1);
-        Robin.hold(true);
-        Vinni.hold(true);
-        Robin.shot();
-        Robin.gox(15);
-        Vinni.gox(15);
-        Robin.gox(15);
-        Vinni.gox(15);
-        Vinni.changecolor("темный как тучка");
-        Vinni.getСolor();
-        Robin.hold(false);
-        Robin.shot();
-Robin.inflate(20);
-Robin.inflate(60);
-Robin.inflate(30);
-
-    }
+	public static void main(String[] args) {
+		BalloonColor balloonColorFirst = BalloonColor.GREEN;
+		BalloonColor balloonColorSecond = BalloonColor.BLUE;
+		
+		Pig pig = new Pig(5);
+		Vinni vinni = new Vinni(15);
+		Robin robin = new Robin(10, vinni);
+		
+		robin.take(balloonColorFirst);
+		robin.take(balloonColorSecond);
+		
+		robin.hold(true);
+		vinni.hold(true);
+		
+		robin.shot();
+		
+		robin.addToCoordinate(5);
+		vinni.addToCoordinate(5);
+		robin.addToCoordinate(15);
+		vinni.addToCoordinate(15);
+		
+		vinni.changeColor("темный как тучка");
+		
+		robin.hold(false);
+		
+		robin.shot();
+		
+		robin.inflate(20);
+		robin.inflate(60);
+		robin.inflate(30);
+		
+	}
 }

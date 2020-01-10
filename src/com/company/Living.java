@@ -1,31 +1,53 @@
 package com.company;
 
-abstract class Living implements traffic, puddle, Hold, gun, air, take {
-    // флаг состояния полета
-    public int flag = 0;
-    // флаг отвечает за то, держит ли Винни-Пух шарик
-    public int flag1 = 0;
+import com.company.Enums.BalloonColor;
+import com.company.Interfaces.*;
 
-    public int flag2 = 0;
-
-    protected Living(int weight, int forse, String name) {
-
-    }
-
-
-    void getСolor() {
-        System.out.println(color);
-    }
-
-    public String color;
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void inflate(int v) {
-
-    }
-
-
+abstract class Living implements IMovable, IChangeable, IHoldable, IShotable, IInflatable, ITakable, INameable {
+	protected int coordinateCurrent;
+	protected String color;
+	
+	protected int weight;
+	
+	protected int isFlying = 0;
+	protected int isHoldingBalloon = 0;
+	protected int isWithBurstBalloon = 0;
+	
+	
+	public Living(int weight) {
+		this.weight = weight;
+	}
+	
+	@Override
+	public void changeColor(String color) {
+	}
+	
+	@Override
+	public void addToCoordinate(int coordinateAddition) {
+		int coordinateDestination = coordinateCurrent + coordinateAddition;
+		System.out.format("%s переместился из точки %d в точку %d\n", getName(), coordinateCurrent, coordinateDestination);
+		coordinateCurrent = coordinateDestination;
+	}
+	
+	@Override
+	public void take(BalloonColor balloon) {
+		System.out.format("%s взял %s шарик\n", getName(), balloon.getName());
+	}
+	
+	@Override
+	public void inflate(int value) {
+		System.out.format("%s %s\n", getName(), Balloon.inflate(value));
+	}
+	
+	public String getColor() {
+		return color;
+	}
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	public int getWeight() {
+		return weight;
+	}
 }
